@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="MainActivity">
+
+    <TextView
+        android:id="@+id/selectedItemsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="16dp"
+        android:text="你點的餐點如下:"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_below="@id/selectedItemsTextView"
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:id="@+id/burgerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/burgerCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="漢堡" />
+
+        <ImageView
+            android:id="@+id/burgerImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/burger"
+            android:layout_marginLeft="8dp"/>
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/friesCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageContainer"
+        android:layout_marginTop="77dp"
+        android:text="薯條" />
+
+    <CheckBox
+        android:id="@+id/colaCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="235dp"
+        android:text="可樂" />
+
+    <CheckBox
+        android:id="@+id/soupCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="玉米濃湯" />
+
+</RelativeLayout>
