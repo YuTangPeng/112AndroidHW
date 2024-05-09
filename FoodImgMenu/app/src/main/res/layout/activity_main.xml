@@ -1,69 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="MainActivity">
+    tools:context=".MainActivity">
 
+
+    <!-- 第一排食物 -->
+    <CheckBox
+        android:id="@+id/checkbox_burger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="漢堡"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/image_burger"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/burger"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_burger"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_burger"
+        android:layout_marginStart="10dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_frenchfry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="薯條"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_burger"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/image_frenchfry"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/frenchfry"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_frenchfry"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_frenchfry"
+        android:layout_marginStart="10dp"/>
+
+    <!-- 第二排食物 -->
+    <CheckBox
+        android:id="@+id/checkbox_softdrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="可樂"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_burger"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/image_softdrink"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/softdrink"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_softdrink"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_softdrink"
+        android:layout_marginStart="10dp"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_soup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="玉米濃湯"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox_frenchfry"
+        app:layout_constraintStart_toEndOf="@+id/image_softdrink"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <ImageView
+        android:id="@+id/image_soup"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/soup"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_soup"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_soup"
+        android:layout_marginStart="10dp"/>
+
+    <!-- 显示 "你點的餐點如下：" -->
     <TextView
-        android:id="@+id/selectedItemsTextView"
+        android:id="@+id/text_selected_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="411dp"
-        android:layout_marginBottom="16dp"
-        android:text="你點的餐點如下:"
-        android:textSize="18sp" />
+        android:text="你點的餐點如下："
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/image_soup"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"/>
 
+    <!-- 显示已选的食物列表 -->
     <LinearLayout
-        android:layout_below="@id/selectedItemsTextView"
-        android:id="@+id/imageContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"/>
-
-    <LinearLayout
-        android:id="@+id/burgerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/burgerCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="漢堡" />
-
-        <ImageView
-            android:id="@+id/burgerImageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/burger"
-            android:layout_marginLeft="8dp"/>
-
-    </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/friesCheckBox"
+        android:id="@+id/image_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageContainer"
-        android:layout_marginTop="77dp"
-        android:text="薯條" />
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/text_selected_food"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"/>
 
-    <CheckBox
-        android:id="@+id/colaCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="235dp"
-        android:text="可樂" />
 
-    <CheckBox
-        android:id="@+id/soupCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="玉米濃湯" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
