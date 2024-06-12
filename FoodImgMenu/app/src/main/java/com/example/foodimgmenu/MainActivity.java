@@ -1,87 +1,112 @@
 package com.example.foodimgmenu;
 
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    private List<Integer> selectedFoodImages = new ArrayList<>();
-    private LinearLayout imageContainer;
+    private ImageView image1, image2, image3, image4, image5;
+    private CheckBox[] checkBoxes;
+    private TextView Output;
+    private int[] chkIDs = {R.id.chk1, R.id.chk2, R.id.chk3, R.id.chk4, R.id.chk5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // 初始化 ImageView 容器
-        imageContainer = findViewById(R.id.image_container);
+        image1 = findViewById(R.id.output1);
+        image2 = findViewById(R.id.output2);
+        image3 = findViewById(R.id.output3);
+        image4 = findViewById(R.id.output4);
+        image5 = findViewById(R.id.output5);
 
-        // 获取所有的 CheckBox
-        CheckBox checkboxBurger = findViewById(R.id.checkbox_burger);
-        CheckBox checkboxFrenchFry = findViewById(R.id.checkbox_frenchfry);
-        CheckBox checkboxSoftDrink = findViewById(R.id.checkbox_softdrink);
-        CheckBox checkboxSoup = findViewById(R.id.checkbox_soup);
+        checkBoxes = new CheckBox[chkIDs.length];
+        for (int i = 0; i < chkIDs.length; i++) {
+            checkBoxes[i] = findViewById(chkIDs[i]);
+            final int finalI = i;
+            checkBoxes[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        showImage(finalI);
+                        updateOrder(finalI);
+                    } else {
+                        hideImage(finalI);
+                        checkAnyChecked();
+                    }
+                }
+            });
+        }
 
-        // 设置 CheckBox 的监听器
-        CompoundButton.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                updateSelectedFoodImages();
-            }
-        };
-
-        checkboxBurger.setOnCheckedChangeListener(checkBoxListener);
-        checkboxFrenchFry.setOnCheckedChangeListener(checkBoxListener);
-        checkboxSoftDrink.setOnCheckedChangeListener(checkBoxListener);
-        checkboxSoup.setOnCheckedChangeListener(checkBoxListener);
+        Output = findViewById(R.id.showOrder);
+        checkAnyChecked(); // 初始狀態檢查是否有勾選
     }
 
-    // 更新选定的食物图片
-    private void updateSelectedFoodImages() {
-        selectedFoodImages.clear();
-
-        // 获取所有的CheckBox
-        CheckBox checkboxBurger = findViewById(R.id.checkbox_burger);
-        CheckBox checkboxFrenchFry = findViewById(R.id.checkbox_frenchfry);
-        CheckBox checkboxSoftDrink = findViewById(R.id.checkbox_softdrink);
-        CheckBox checkboxSoup = findViewById(R.id.checkbox_soup);
-
-        // 检查哪些食物被选中
-        if (checkboxBurger.isChecked()) {
-            selectedFoodImages.add(R.drawable.burger);
+    private void showImage(int index) {
+        switch (index) {
+            case 0:
+                image1.setVisibility(View.VISIBLE);
+                break;
+            case 1:
+                image2.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                image3.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                image4.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                image5.setVisibility(View.VISIBLE);
+                break;
         }
-        if (checkboxFrenchFry.isChecked()) {
-            selectedFoodImages.add(R.drawable.frenchfry);
-        }
-        if (checkboxSoftDrink.isChecked()) {
-            selectedFoodImages.add(R.drawable.softdrink);
-        }
-        if (checkboxSoup.isChecked()) {
-            selectedFoodImages.add(R.drawable.soup);
-        }
+    }
 
-        // 更新ImageView显示
-        imageContainer.removeAllViews();
+    private void hideImage(int index) {
+        switch (index) {
+            case 0:
+                image1.setVisibility(View.GONE);
+                break;
+            case 1:
+                image2.setVisibility(View.GONE);
+                break;
+            case 2:
+                image3.setVisibility(View.GONE);
+                break;
+            case 3:
+                image4.setVisibility(View.GONE);
+                break;
+            case 4:
+                image5.setVisibility(View.GONE);
+                break;
+        }
+    }
 
-        int imageSize = getResources().getDimensionPixelSize(R.dimen.image_size); // 获取定义的图片尺寸
+    private void updateOrder(int index) {
+        String[] orders = {"漢堡", "薯條", "可樂", "玉米濃湯", "咖啡"};
+        if (index >= 0 && index < orders.length) {
+            Output.setText("你點的餐點如下：");
+        }
+    }
 
-        for (int imageResource : selectedFoodImages) {
-            ImageView imageView = new ImageView(this);
-            imageView.setImageResource(imageResource);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    imageSize,
-                    imageSize
-            );
-            layoutParams.setMargins(10, 0, 10, 0);
-            imageView.setLayoutParams(layoutParams);
-            imageContainer.addView(imageView);
+    private void checkAnyChecked() {
+        boolean anyChecked = false;
+        for (CheckBox checkBox : checkBoxes) {
+            if (checkBox.isChecked()) {
+                anyChecked = true;
+                break;
+            }
+        }
+        if (!anyChecked) {
+            Output.setText("請點餐：");
         }
     }
 }

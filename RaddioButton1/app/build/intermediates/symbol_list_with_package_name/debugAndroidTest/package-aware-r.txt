@@ -1,3 +1,0 @@
-com.example.raddiobutton1.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

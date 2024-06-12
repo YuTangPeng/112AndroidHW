@@ -1,114 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    <!-- 第一排食物 -->
     <CheckBox
-        android:id="@+id/checkbox_burger"
+        android:id="@+id/chk1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:checked="false"
         android:text="漢堡"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
-
-    <ImageView
-        android:id="@+id/image_burger"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/burger"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_burger"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_burger"
-        android:layout_marginStart="10dp"/>
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <CheckBox
-        android:id="@+id/checkbox_frenchfry"
+        android:id="@+id/chk2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:checked="false"
         android:text="薯條"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/img1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_burger"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-    <ImageView
-        android:id="@+id/image_frenchfry"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/frenchfry"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_frenchfry"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_frenchfry"
-        android:layout_marginStart="10dp"/>
-
-    <!-- 第二排食物 -->
     <CheckBox
-        android:id="@+id/checkbox_softdrink"
+        android:id="@+id/chk3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="22dp"
+        android:checked="false"
         android:text="可樂"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_burger"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
-
-    <ImageView
-        android:id="@+id/image_softdrink"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/softdrink"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_softdrink"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_softdrink"
-        android:layout_marginStart="10dp"/>
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chk1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <CheckBox
-        android:id="@+id/checkbox_soup"
+        android:id="@+id/chk4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="22dp"
+        android:checked="false"
         android:text="玉米濃湯"
-        app:layout_constraintTop_toBottomOf="@+id/checkbox_frenchfry"
-        app:layout_constraintStart_toEndOf="@+id/image_softdrink"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
+        android:textSize="25sp"
+        app:layout_constraintLeft_toRightOf="@+id/img3"
+        app:layout_constraintTop_toBottomOf="@+id/chk2"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <CheckBox
+        android:id="@+id/chk5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="22dp"
+        android:checked="false"
+        android:text="咖啡"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chk3"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
-        android:id="@+id/image_soup"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/soup"
-        app:layout_constraintTop_toTopOf="@+id/checkbox_soup"
-        app:layout_constraintStart_toEndOf="@+id/checkbox_soup"
-        android:layout_marginStart="10dp"/>
+        android:id="@+id/img1"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chk1"
+        app:layout_constraintLeft_toRightOf="@+id/chk1"
+        app:layout_constraintTop_toTopOf="@+id/chk1"
+        app:srcCompat="@mipmap/burger"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-    <!-- 显示 "你點的餐點如下：" -->
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chk2"
+        app:layout_constraintLeft_toRightOf="@+id/chk2"
+        app:layout_constraintTop_toTopOf="@+id/chk2"
+        app:srcCompat="@mipmap/frenchfry"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chk3"
+        app:layout_constraintLeft_toRightOf="@+id/chk3"
+        app:layout_constraintTop_toTopOf="@+id/chk3"
+        app:srcCompat="@mipmap/softdrink"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chk4"
+        app:layout_constraintLeft_toRightOf="@+id/chk4"
+        app:layout_constraintTop_toTopOf="@+id/chk4"
+        app:srcCompat="@mipmap/soup"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <ImageView
+        android:id="@+id/img5"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chk5"
+        app:layout_constraintLeft_toRightOf="@+id/chk5"
+        app:layout_constraintTop_toTopOf="@+id/chk5"
+        app:srcCompat="@mipmap/coffee"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
     <TextView
-        android:id="@+id/text_selected_food"
-        android:layout_width="wrap_content"
+        android:id="@+id/showOrder"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="你點的餐點如下："
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/image_soup"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginRight="16dp"
+        android:text="請點餐"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chk3"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-    <!-- 显示已选的食物列表 -->
     <LinearLayout
-        android:id="@+id/image_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/text_selected_food"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showOrder"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1">
 
+        <ImageView
+            android:id="@+id/output1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/burger"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="197dp" />
+
+        <ImageView
+            android:id="@+id/output2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/frenchfry"
+            tools:layout_editor_absoluteX="76dp"
+            tools:layout_editor_absoluteY="197dp" />
+
+        <ImageView
+            android:id="@+id/output3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/softdrink"
+            tools:layout_editor_absoluteX="136dp"
+            tools:layout_editor_absoluteY="197dp"
+            tools:srcCompat="@mipmap/softdrink" />
+
+        <ImageView
+            android:id="@+id/output4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/soup"
+            tools:layout_editor_absoluteX="196dp"
+            tools:layout_editor_absoluteY="197dp" />
+
+        <ImageView
+            android:id="@+id/output5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/coffee"
+            tools:srcCompat="@mipmap/coffee" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

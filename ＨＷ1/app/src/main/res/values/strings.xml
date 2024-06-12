@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HW</string>
+    <string name="input_name">帳號</string>
+    <string name="input_ett">密碼</string>
+    <string name="send">確定</string>
+    <string name="show">顯示結果</string>
+</resources>
